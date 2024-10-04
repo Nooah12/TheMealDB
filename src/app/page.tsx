@@ -32,9 +32,9 @@ export default function Home() {
 
   return (
     <>
-    {user && (
+    {user && ( // here we get the favorite from category page?
       <section>
-        <p>Hi {user.name}</p>
+        <p>Welcome back {user.name}!</p>
         Your fav category of food is {user.category}
         
         {recipes && recipes.map((meal:RecipeType) => 
