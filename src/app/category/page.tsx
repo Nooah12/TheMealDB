@@ -33,19 +33,23 @@ const CategoryPage = () => {
 
   return (
     <section className=''>
-      <h2>Categories</h2>
-      {categories.map((category: CategoryType) => (
-        <div key={category.idCategory}> 
-          <button onClick={() =>handleClick(category.strCategory)}>
-            <FontAwesomeIcon className="heart-icon"
-              icon={user?.category === category.strCategory ? solidHeart : regularHeart} /> 
-          </button>
-          <Link href={`/category/${category.strCategory}`}>
-              <h3>{category.strCategory}</h3>
-              <img src={category.strCategoryThumb} alt={category.strCategory} height="auto" width="200px" />
-          </Link>
-        </div>
-      ))}
+      <h2 className='text-center'>Categories</h2>
+      <div className='grid grid-cols-2 p-4'>
+        {categories.map((category: CategoryType) => (
+            <div className='p-4' key={category.idCategory}> 
+              <div className='flex justify-between'>
+                  <h3>{category.strCategory}</h3>
+                  <button onClick={() =>handleClick(category.strCategory)}>
+                    <FontAwesomeIcon className="heart-icon"
+                      icon={user?.category === category.strCategory ? solidHeart : regularHeart} /> 
+                  </button>
+                </div>
+              <Link href={`/category/${category.strCategory}`}>
+                  <img src={category.strCategoryThumb} alt={category.strCategory} height="auto" width="200px" />
+              </Link>
+            </div>
+          ))}
+      </div>
     </section>
   );
 };

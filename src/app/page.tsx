@@ -7,7 +7,7 @@ import Link from "next/link";
 
 export default function Home() {
   const { user } = useUserContext() as UserContextType // treat this as a specific type! not null?
-  const [recipes, setRecipes] = useState<RecipeType | null>(null)
+  const [recipes, setRecipes] = useState<RecipeType[]>([]);
 
   useEffect( () => {
     const fetchRecipes = async () => {
@@ -30,22 +30,59 @@ export default function Home() {
     fetchRecipes();
   }, [])
 
+/*   return (
+    <>
+      {user && ( // here we get the favorite from category page?
+        <section>
+          <div className="text-center my-4">
+            <p className="font-semibold text-lg">Welcome back {user.name}!</p>
+            <p>Your favorite category of food is: {user.category}</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-8">
+            {recipes && recipes.map((meal: RecipeType) => (
+              <div className="bg-gray-200 p-4 border border-gray-300 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
+                key={meal.idMeal}>
+                <Link href={`/recipe/${meal.idMeal}`}>
+                  <h3 className="mb-2 text-center text-black font-semibold text-lg">{meal.strMeal}</h3>
+                  <img className="w-full h-auto object-cover rounded-lg mb-2" 
+                    src={meal.strMealThumb} alt={meal.strMeal} />
+                </Link>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+    </>
+  ); */
+
+
   return (
     <>
-    {user && ( // here we get the favorite from category page?
-      <section>
-        <p>Welcome back {user.name}!</p>
-        Your fav category of food is {user.category}
-        
-        {recipes && recipes.map((meal:RecipeType) => 
-        <div key={meal.idMeal}>
-          <Link href={`/recipe/${meal.idMeal}`}>
-            {meal.strMeal}
-            <img src={meal.strMealThumb} height="auto" width="200px"></img>
-          </Link>
-        </div>)}
-      </section>
-    )}
+      {user && ( // here we get the favorite from category page?
+        <section>
+          <div className="text-center my-4">
+            <p className="font-semibold text-lg mb-1">Welcome back {user.name}!</p>
+            <p>Your favorite category of food is: <span className="font-bold">{user.category}</span></p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-8">
+            {user.category.length > 0 ? (
+              recipes && recipes.map((meal: RecipeType) => (
+                <div className="bg-gray-200 p-4 border border-gray-300 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
+                  key={meal.idMeal}>
+                  <Link href={`/recipe/${meal.idMeal}`}>
+                    <h3 className="mb-2 text-center text-black font-semibold text-lg">{meal.strMeal}</h3>
+                    <img className="w-full h-auto object-cover rounded-lg mb-2" 
+                      src={meal.strMealThumb} alt={meal.strMeal} />
+                  </Link>
+                </div>
+              ))
+            ) : (
+              <p className="text-center">There is no saved category, yet!</p>
+            )}    
+          </div>
+        </section>
+      )}
     </>
   );
+  
 }

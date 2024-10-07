@@ -12,6 +12,9 @@
     "@fortawesome/free-regular-svg-icons": "^6.6.0",
     "@fortawesome/free-solid-svg-icons": "^6.6.0",
     "@fortawesome/react-fontawesome": "^0.2.2",
+    "@ionic/react": "^8.3.2",
+    "@ionic/react-router": "^8.3.2",
+    "ionicons": "^7.4.0",
     "next": "14.2.13",
     "react": "^18",
     "react-dom": "^18"

@@ -8,18 +8,15 @@ const profile = () => {
   const {user, setUser} = useUserContext() as UserContextType;
   const [recipeDetails, setRecipeDetails] = useState<RecipeType[]>([]);
 
-  // with Promise.all
   useEffect(() => {
     const fetchSavedRecipes = async () => {
       try {
         if (user?.savedRecipes?.length) {
-          // Fetch all recipe details for each savedRecipe ID
           const fetchPromises = user.savedRecipes.map(async (idMeal) => {
             const response = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${idMeal}`);
             const data = await response.json();
-            return data.meals[0]; // Return the recipe details
+            return data.meals[0];
           });
-
           // Wait for all fetches to complete and update the state
           const allRecipes = await Promise.all(fetchPromises);
           setRecipeDetails(allRecipes);
@@ -34,50 +31,28 @@ const profile = () => {
     }
   }, [user?.savedRecipes]);
 
-
-
-
-
-/* useEffect(() => {
-    const fetchSavedRecipes = async () => {
-      if (user?.savedRecipes?.length) {
-        for (const idMeal of user.savedRecipes) {
-          try {
-            const response = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${idMeal}`);
-            const data = await response.json();
-            const newRecipe = data.meals[0];
-
-            // Avoid duplicates by checking if the meal is already in recipeDetails
-            setRecipeDetails((prevDetails) => {
-              if (!prevDetails.some(recipe => recipe.idMeal === newRecipe.idMeal)) {
-                return [...prevDetails, newRecipe];
-              }
-              return prevDetails; // No update if already present
-            });
-          } catch (error) {
-            console.error(`Error fetching recipe with ID ${idMeal}:`, error);
-          }
-        }
-      }
-    };
-
-    fetchSavedRecipes();
-  }, [user?.savedRecipes]); */
-
-  return (
-    <div>
-      <h2>Favorite Category: {user?.category}</h2>
-      <h2>Favorite meals of: {user?.name}</h2>
-     {/*  {user && user.savedRecipes.map(recipe => <p>{recipe}</p>)} */}
-     {recipeDetails.map((recipe) => (
-      <div key={recipe.idMeal}>
-        <h3>{recipe.strMeal}</h3>
-        <img src={recipe.strMealThumb} alt={recipe.strMeal} height="auto" width="200px" />
-        <Link href={`/recipe/${recipe.idMeal}`}>View Recipe</Link>
-      </div>
-     ))}
-    </div>
-  )
+    return (
+      <section>
+        <div className="w-60 m-auto my-4 font-semibold text-lg">
+          <h2 className='mb-4'>Favorite Category: {user?.category}</h2>
+          <h2>Favorite meals of {user?.name}:</h2>
+        </div>
+        <div className='w-60 m-auto'>
+          {user.savedRecipes.length > 0 ? ( // possible null ?
+            recipeDetails.map((recipe) => (
+              <div className='p-4' key={recipe.idMeal}>
+                <Link href={`/recipe/${recipe.idMeal}`}>
+                  <h3 className='mb-2 text-center'>{recipe.strMeal}</h3>
+                  <img className='rounded-full' src={recipe.strMealThumb} alt={recipe.strMeal} height="auto" width="200px" />
+                </Link>
+              </div>
+            ))
+          ) : (
+            <p>No saved favorites yet</p>
+          )}
+        </div>
+      </section>
+    )
 }
 
 export default profile

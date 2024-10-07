@@ -29,14 +29,14 @@ const CategoryItemsPage = ({ params }: { params: { categoryName: string } }) => 
   }, [categoryName]);
 
   return (
-    <section className='p-4'>
-      <h2>Meals of Category: {categoryName}</h2>
-      <div>
+    <section className=''>
+      <h2 className='text-center mt-4 font-semibold text-lg'>Meals of Category: {categoryName}</h2>
+      <div className='w-60 m-auto'>
         {categoryItems.map((categoryItem) => (
-          <div key={categoryItem.idMeal}>
+          <div className='p-4' key={categoryItem.idMeal}>
             <Link href={`/recipe/${categoryItem.idMeal}`}>
-              {categoryItem.strMeal}
-              <img src={categoryItem.strMealThumb} height="auto" width="200px"></img>
+              <h3 className='mb-2 text-center'>{categoryItem.strMeal}</h3>
+              <img className='rounded-full' src={categoryItem.strMealThumb} height="auto" width="200px"></img>
             </Link>
           </div>
           )

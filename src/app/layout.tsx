@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from "@/components/Header/Header";
 import LogInWrapper from "@/components/LoginWrapper/LoginWrapper";
 import { UserProvider } from "@/utils/contexts";
+import Footer from "@/components/Footer/Footer";
 
 export const metadata: Metadata = {
   title: "TheMealDB",
@@ -23,6 +24,7 @@ export default function RootLayout({
         <UserProvider>
           <LogInWrapper children={children}  /> {/* page.tsx */}
         </UserProvider>
+        <Footer />
       </body>
     </html>
   );

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Pangolin&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -11,12 +13,14 @@ html {
 }
 
 body {
+  background-color: #3e2d1b;
+  color: white;
     margin: 0;
-   /*  background-color: #636361; */
     min-height: 100%;
-    font-family: "Space Grotesk", sans-serif;
-    /* font-family: "Pangolin", cursive; */
+    font-family: "Pangolin", cursive;
     font-weight: 400;
     font-style: normal;
+    display: flex;
+    flex-direction: column;
   }
 

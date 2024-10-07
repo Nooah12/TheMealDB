@@ -10,6 +10,7 @@ export type UserContextType = {
 }
 
 export type RecipeType = {
+    strCategory: string,
     strMeal: string,
     idMeal: string,
     strMealThumb: string,

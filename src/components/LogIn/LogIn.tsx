@@ -33,11 +33,13 @@ const LogIn = () => {
 
 
   return (
-    <div>
-        <p>Enter user name to login</p>
-        <label htmlFor="user-input">Enter user name</label>
-        <input id="user-input" onChange={handleChange} />
-        <button onClick={handleClick}>Login</button>
+    <div className="w-3/4 m-auto flex flex-col mt-10 p-3 border-2">
+        <h2 className="mb-1 font-bold text-lg">Welcome!</h2>
+        <p className="mb-2">Enter user name to login</p>
+        <label className="mb-1" htmlFor="user-input">User Name</label>
+        <input className="mb-2 border-2 rounded-md" id="user-input" onChange={handleChange} />
+        <button className="px-8 py-1 rounded-md bg-gradient-to-b from-blue-500 to-blue-600 text-white focus:ring-2 focus:ring-blue-400 hover:shadow-xl transition duration-200"
+            onClick={handleClick}>Login</button>
     </div>
   )
 }

@@ -3,8 +3,8 @@ import { UserType } from "./types";
 export const registeredUsers:UserType[] = [
    {
         name: "Jimi",
-        category: "Seafood",
-        savedRecipes: []
+        category: "",
+        savedRecipes: ["53085", "52974", "52874"]
     },
     {
         name: "John",

@@ -43,7 +43,6 @@ const recipePage = ({params}: {params: {id:string}}) => {
 
     return (
       <section className="p-4">
-        <p>hello from recipe page, id number is: {id}</p>
         {recipe && (
           <button onClick={() => handleClick(recipe.idMeal)}>
             <FontAwesomeIcon className="heart-icon"
@@ -52,10 +51,15 @@ const recipePage = ({params}: {params: {id:string}}) => {
         )}
         {recipe && (
           <div className="flex flex-col">
-            <h3 className="mb-4 text-center">{recipe.strMeal}</h3>
-            <img className="mb-4 self-center" src={recipe.strMealThumb} height="auto" width="300px" />
-            <p className="mb-4">{recipe.strInstructions}</p>
-            <p>Location: {recipe.strArea}</p>
+            <img className="mb-4 self-center rounded-lg" src={recipe.strMealThumb} height="auto" width="300px" />
+            <div className="p-4">
+              <h3 className="text-center mb-1 text-lg font-semibold">{recipe.strMeal}</h3>
+              <div className="flex justify-evenly">
+                <p className="font-thin">{recipe.strArea}</p>
+                <p>{recipe.strCategory}</p>
+              </div>
+              <p className="mt-4">{recipe.strInstructions}</p>
+            </div>
           </div>
         )}
       </section>
