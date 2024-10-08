@@ -33,17 +33,17 @@ const profile = () => {
 
     return (
       <section>
-        <div className="w-60 m-auto my-4 font-semibold text-lg">
+        <div className="my-4 font-semibold text-lg text-center">
           <h2 className='mb-4'>Favorite Category: {user?.category}</h2>
           <h2>Favorite meals of {user?.name}:</h2>
         </div>
-        <div className='w-60 m-auto'>
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-8'>
           {user.savedRecipes.length > 0 ? ( // possible null ?
             recipeDetails.map((recipe) => (
-              <div className='p-4' key={recipe.idMeal}>
+              <div className='bg-gray-200 p-4 border border-gray-300 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300' key={recipe.idMeal}>
                 <Link href={`/recipe/${recipe.idMeal}`}>
-                  <h3 className='mb-2 text-center'>{recipe.strMeal}</h3>
-                  <img className='rounded-full' src={recipe.strMealThumb} alt={recipe.strMeal} height="auto" width="200px" />
+                  <h3 className='mb-2 text-center text-black'>{recipe.strMeal}</h3>
+                  <img className='rounded-full' src={recipe.strMealThumb} alt={recipe.strMeal} height="auto" width="100%" />
                 </Link>
               </div>
             ))

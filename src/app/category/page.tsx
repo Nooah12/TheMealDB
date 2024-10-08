@@ -33,19 +33,19 @@ const CategoryPage = () => {
 
   return (
     <section className=''>
-      <h2 className='text-center'>Categories</h2>
-      <div className='grid grid-cols-2 p-4'>
+      <h2 className='text-center text-lg md:text-[32px] my-4 md:my-8'>Categories</h2>
+      <div className='grid md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 gap-6 px-8'>
         {categories.map((category: CategoryType) => (
-            <div className='p-4' key={category.idCategory}> 
+            <div className=' bg-gray-200 p-4 border border-gray-300 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300' key={category.idCategory}> 
               <div className='flex justify-between'>
-                  <h3>{category.strCategory}</h3>
+                  <h3 className='text-black'>{category.strCategory}</h3>
                   <button onClick={() =>handleClick(category.strCategory)}>
-                    <FontAwesomeIcon className="heart-icon"
+                    <FontAwesomeIcon className="heart-icon text-black"
                       icon={user?.category === category.strCategory ? solidHeart : regularHeart} /> 
                   </button>
                 </div>
               <Link href={`/category/${category.strCategory}`}>
-                  <img src={category.strCategoryThumb} alt={category.strCategory} height="auto" width="200px" />
+                  <img className='rounded-lg' src={category.strCategoryThumb} alt={category.strCategory} height="auto" width="100%" />
               </Link>
             </div>
           ))}

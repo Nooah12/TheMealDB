@@ -19,19 +19,6 @@ const LogIn = () => {
         }
     }
 
-/*     const [error, setError] = useState<string | null>(null);
-
-    const handleClick = () => {
-    const loggedInUser = registeredUsers.find((user) => user.name === userInput);
-    if (loggedInUser) {
-        setUser(loggedInUser);
-        setError(null); // clear error if successful
-    } else {
-        setError("User not found");
-    } 
-    };*/
-
-
   return (
     <div className="w-3/4 m-auto flex flex-col mt-10 p-3 border-2">
         <h2 className="mb-1 font-bold text-lg">Welcome!</h2>
