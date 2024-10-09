@@ -12,7 +12,6 @@ const LogInWrapper = ({children}:{children:React.ReactNode}) => {
         {!user ? <LogIn /> : ( // if no user show login, else show menu
             <>
             <Menu />
-            {/* <p>Hi {user.name}</p> */}
             {children}
             </>
         )}
