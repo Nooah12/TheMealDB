@@ -16,7 +16,7 @@ export default function Home() {
           const response = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${user.category}`);
           const data = await response.json();
 
-          const topFiveRecipes = data.meals.slice(0, 5); // get the top 5 recipes
+          const topFiveRecipes = data.meals.slice(0, 10); // get the top 5 recipes
           setRecipes(topFiveRecipes);
 
           console.log(data)
@@ -38,14 +38,14 @@ export default function Home() {
             <p className="font-semibold text-lg mb-1">Welcome back {user.name}!</p>
             <p>Your favorite category of food is: <span className="font-bold">{user.category}</span></p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-8">
+          <div className="grid md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 gap-6 px-8">
             {user.category.length > 0 ? (
               recipes && recipes.map((meal: RecipeType) => (
-                <div className="flex items-center bg-gray-200 p-4 border border-gray-300 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
+                <div className="flex items-center bg-gray-100 p-4 border border-gray-300 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
                   key={meal.idMeal}>
                   <Link href={`/recipe/${meal.idMeal}`}>
                     <h3 className="mb-2 text-center text-black font-semibold text-lg">{meal.strMeal}</h3>
-                    <img className="w-full h-auto object-cover rounded-lg mb-2" 
+                    <img className="w-full h-auto object-cover rounded-lg mb-2 border border-[#7f7575]" 
                       src={meal.strMealThumb} alt={meal.strMeal} />
                   </Link>
                 </div>
