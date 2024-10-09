@@ -41,31 +41,6 @@ const recipePage = ({params}: {params: {id:string}}) => {
         fetchRecipes();
       }, [])
 
-    /* return (
-      <section className="p-4">
-        {recipe && (
-          <button onClick={() => handleClick(recipe.idMeal)}>
-            <FontAwesomeIcon className="heart-icon"
-              icon={user?.savedRecipes.includes(recipe.idMeal) ? solidHeart : regularHeart} />
-          </button>
-        )}
-        {recipe && (
-          <div className="flex flex-col bg-gray-200 p-4 border border-gray-300 rounded-lg">
-            <img className="mb-4 self-center rounded-lg" src={recipe.strMealThumb} height="auto" width="300px" />
-            <div className="p-4">
-              <h3 className="text-black text-center mb-1 text-lg font-semibold">{recipe.strMeal}</h3>
-              <div className="text-black flex justify-evenly">
-                <p className="font-thin">{recipe.strArea}</p>
-                <p>{recipe.strCategory}</p>
-              </div>
-              <p className="text-black mt-4">{recipe.strInstructions}</p>
-            </div>
-          </div>
-        )}
-      </section>
-    ); */
-
-
     return (
       <section className="p-4 md:w-3/4 lg:w-2/3 2xl:w-1/2 m-auto">
         <div className="bg-gray-200 p-4 border border-gray-300 rounded-lg">
@@ -77,7 +52,7 @@ const recipePage = ({params}: {params: {id:string}}) => {
         )}
         {recipe && (
           <div className="flex flex-col ">
-            <img className="mb-4 self-center rounded-lg" src={recipe.strMealThumb} height="auto" width="300px" />
+            <img className="mb-4 self-center rounded-lg border border-[#7f7575]" src={recipe.strMealThumb} height="auto" width="300px" />
             <div className="p-4">
               <h3 className="text-black text-center mb-1 text-lg font-semibold">{recipe.strMeal}</h3>
               <div className="text-black flex justify-evenly">

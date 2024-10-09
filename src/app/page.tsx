@@ -41,7 +41,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-8">
             {user.category.length > 0 ? (
               recipes && recipes.map((meal: RecipeType) => (
-                <div className="bg-gray-200 p-4 border border-gray-300 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
+                <div className="flex items-center bg-gray-200 p-4 border border-gray-300 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
                   key={meal.idMeal}>
                   <Link href={`/recipe/${meal.idMeal}`}>
                     <h3 className="mb-2 text-center text-black font-semibold text-lg">{meal.strMeal}</h3>

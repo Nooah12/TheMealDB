@@ -37,10 +37,10 @@ const profile = () => {
           <h2 className='mb-4'>Favorite Category: {user?.category}</h2>
           <h2>Favorite meals of {user?.name}:</h2>
         </div>
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-8'>
+        <div className='grid md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 gap-6 px-8'>
           {user.savedRecipes.length > 0 ? ( // possible null ?
             recipeDetails.map((recipe) => (
-              <div className='bg-gray-200 p-4 border border-gray-300 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300' key={recipe.idMeal}>
+              <div className=' flex items-center bg-gray-200 p-4 border border-gray-300 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300' key={recipe.idMeal}>
                 <Link href={`/recipe/${recipe.idMeal}`}>
                   <h3 className='mb-2 text-center text-black'>{recipe.strMeal}</h3>
                   <img className='rounded-full' src={recipe.strMealThumb} alt={recipe.strMeal} height="auto" width="100%" />

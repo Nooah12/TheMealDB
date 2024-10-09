@@ -33,7 +33,7 @@ const CategoryItemsPage = ({ params }: { params: { categoryName: string } }) => 
       <h2 className='text-center my-4 md:my-6 font-semibold text-lg md:text-xl lg:text-3xl'>{categoryName}</h2>
       <div className='grid md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 gap-6 px-8'>
         {categoryItems.map((categoryItem) => (
-          <div className='bg-gray-200 p-4 border border-gray-300 rounded-lg' key={categoryItem.idMeal}>
+          <div className='bg-gray-200 p-4 border border-gray-300 rounded-lg flex items-center' key={categoryItem.idMeal}>
             <Link href={`/recipe/${categoryItem.idMeal}`}>
               <h3 className='mb-2 text-center text-black'>{categoryItem.strMeal}</h3>
               <img className='rounded-full' src={categoryItem.strMealThumb} height="auto" width="100%"></img>
