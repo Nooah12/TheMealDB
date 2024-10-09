@@ -38,7 +38,7 @@ const ProfilePage = () => {
           <h2>Favorite meals of {user?.name}:</h2>
         </div>
         <div className='grid md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 gap-6 px-8'>
-          {user.savedRecipes.length > 0 ? ( // possible null ?
+          {user && user.savedRecipes?.length > 0 ? (
             recipeDetails.map((recipe) => (
               <div className='flex items-center bg-gray-100 p-4 border border-gray-300 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300' key={recipe.idMeal}>
                 <Link href={`/recipe/${recipe.idMeal}`}>
