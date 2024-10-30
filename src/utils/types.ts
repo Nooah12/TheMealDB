@@ -5,8 +5,9 @@ export type UserType = {
 }
 
 export type UserContextType = {
-    user: UserType |  null,
-    setUser: (user:UserType)=>void
+    user: UserType |  null;
+    setUser: (user: UserType ) => void;
+    logout: () => void;
 }
 
 export type RecipeType = {

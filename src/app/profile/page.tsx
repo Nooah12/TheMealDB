@@ -5,7 +5,7 @@ import Link from 'next/link';
 import React, { useEffect, useState } from 'react'
 
 const ProfilePage = () => {
-  const {user, setUser} = useUserContext() as UserContextType;
+  const {user, setUser, logout} = useUserContext() as UserContextType;
   const [recipeDetails, setRecipeDetails] = useState<RecipeType[]>([]);
 
   useEffect(() => {
@@ -33,11 +33,13 @@ const ProfilePage = () => {
 
     return (
       <section>
+        <button onClick={logout} className="mb-4 px-4 py-2 border text-white rounded">Log Out</button>
         <div className="my-4 font-semibold text-lg text-center">
           <h2 className='mb-4'>Favorite Category: {user?.category}</h2>
           <h2>Favorite meals of {user?.name}:</h2>
         </div>
-        <div className='grid md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 gap-6 px-8'>
+        
+        <div className='grid md:grid-cols-3 lg:grid-Acols-4 2xl:grid-cols-5 gap-6 px-8'>
           {user && user.savedRecipes?.length > 0 ? (
             recipeDetails.map((recipe) => (
               <div className='flex items-center bg-gray-100 p-4 border border-gray-300 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300' key={recipe.idMeal}>
