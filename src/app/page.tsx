@@ -5,6 +5,8 @@ import { RecipeType, UserContextType } from "@/utils/types";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 
+import {Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter} from "@/components/ui/card"
+
 export default function Home() {
   const { user } = useUserContext() as UserContextType // treat this as a specific type! not null?
   const [recipes, setRecipes] = useState<RecipeType[]>([]);
@@ -41,14 +43,24 @@ export default function Home() {
           <div className="grid md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 gap-6 px-8">
             {user.category.length > 0 ? (
               recipes && recipes.map((meal: RecipeType) => (
-                <div className="flex items-center bg-gray-100 p-4 border border-gray-300 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
-                  key={meal.idMeal}>
-                  <Link href={`/recipe/${meal.idMeal}`}>
-                    <h3 className="mb-2 text-center text-black font-semibold text-lg">{meal.strMeal}</h3>
-                    <img className="w-full h-auto object-cover rounded-lg mb-2 border border-[#7f7575]" 
-                      src={meal.strMealThumb} alt={meal.strMeal} />
-                  </Link>
-                </div>
+                // Card
+
+
+                <Card key={meal.idMeal} className="flex flex-col justify-between bg-gray-100 p-4 border border-gray-300 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                  <CardHeader>
+                    <CardTitle>{meal.strMeal}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <Link href={`/recipe/${meal.idMeal}`}>
+                      <img 
+                        className="w-full h-auto object-cover rounded-lg mb-2 border border-[#7f7575]" 
+                        src={meal.strMealThumb} 
+                        alt={meal.strMeal} 
+                      />
+                    </Link>
+                  </CardContent>
+                </Card>
+
               ))
             ) : (
               <p className="text-center">There is no saved category, yet!</p>
@@ -60,3 +72,15 @@ export default function Home() {
   );
   
 }
+
+
+
+
+                {/* <div className="flex items-center bg-gray-100 p-4 border border-gray-300 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
+                  key={meal.idMeal}>
+                  <Link href={`/recipe/${meal.idMeal}`}>
+                    <h3 className="mb-2 text-center text-black font-semibold text-lg">{meal.strMeal}</h3>
+                    <img className="w-full h-auto object-cover rounded-lg mb-2 border border-[#7f7575]" 
+                      src={meal.strMealThumb} alt={meal.strMeal} />
+                  </Link>
+                </div> */}
