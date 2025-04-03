@@ -58,9 +58,9 @@ export default function Home() {
                       alt={meal.strMeal} 
                     />
                   </CardContent>
-                  <CardFooter>
-                    <Link href={`/recipe/${meal.idMeal}`}>
-                      <Button variant="outline" className="bg-orange-300">View Recipe</Button>
+                  <CardFooter className="p-0 pb-2 px-3 w-full">
+                    <Link href={`/recipe/${meal.idMeal}`} className="w-full">
+                      <Button variant="outline" className="bg-orange-300 hover:bg-orange-400 w-full">View Recipe</Button>
                     </Link>
                   </CardFooter>
                 </Card>
