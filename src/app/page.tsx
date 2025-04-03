@@ -48,7 +48,7 @@ export default function Home() {
 
 
                 <Card key={meal.idMeal} className="flex flex-col justify-between bg-gray-100 border border-gray-300 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-                  <CardHeader>
+                  <CardHeader className="overflow-hidden whitespace-nowrap text-overflow-ellipsis">
                     <CardTitle>{meal.strMeal}</CardTitle>
                   </CardHeader>
                   <CardContent>
