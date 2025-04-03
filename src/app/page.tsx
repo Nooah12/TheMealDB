@@ -52,13 +52,11 @@ export default function Home() {
                     <CardTitle>{meal.strMeal}</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <Link href={`/recipe/${meal.idMeal}`}>
-                      <img 
-                        className="w-full h-auto object-cover rounded-lg border border-[#7f7575]" 
-                        src={meal.strMealThumb} 
-                        alt={meal.strMeal} 
-                      />
-                    </Link>
+                    <img 
+                      className="w-full h-auto object-cover rounded-lg border border-[#7f7575]" 
+                      src={meal.strMealThumb} 
+                      alt={meal.strMeal} 
+                    />
                   </CardContent>
                   <CardFooter>
                     <Link href={`/recipe/${meal.idMeal}`}>
