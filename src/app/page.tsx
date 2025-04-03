@@ -41,15 +41,15 @@ export default function Home() {
             <p className="font-semibold text-lg mb-1">Welcome back {user.name}!</p>
             <p>Your favorite category of food is: <span className="font-bold">{user.category}</span></p>
           </div>
-          <div className="grid md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 gap-6 px-8 max-w-screen-2xl m-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 gap-6 px-8 max-w-screen-2xl m-auto">
             {user.category.length > 0 ? (
               recipes && recipes.map((meal: RecipeType) => (
                 // Card
 
 
-                <Card key={meal.idMeal} className="flex flex-col justify-between bg-gray-100 border border-gray-300 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-                  <CardHeader className="overflow-hidden whitespace-nowrap text-overflow-ellipsis">
-                    <CardTitle>{meal.strMeal}</CardTitle>
+                <Card key={meal.idMeal} className="flex flex-col justify-between bg-gray-100 border border-gray-300 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 w-full">
+                  <CardHeader className=""> 
+                    <CardTitle className="truncate">{meal.strMeal}</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <img 

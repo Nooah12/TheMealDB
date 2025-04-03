@@ -31,7 +31,7 @@ const CategoryItemsPage = ({ params }: { params: { categoryName: string } }) => 
   return (
     <section className=''>
       <h2 className='text-center my-4 md:my-6 font-semibold text-lg md:text-xl lg:text-3xl'>{categoryName}</h2>
-      <div className='grid md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 gap-5 px-8 max-w-screen-2xl m-auto'>
+      <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 gap-5 px-8 max-w-screen-2xl m-auto'>
         {categoryItems.map((categoryItem) => (
           <div className='bg-gray-100 p-4 border border-gray-300 rounded-lg flex items-center' key={categoryItem.idMeal}>
             <Link href={`/recipe/${categoryItem.idMeal}`}>

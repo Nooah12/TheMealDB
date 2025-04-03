@@ -34,7 +34,7 @@ const CategoryPage = () => {
   return (
     <section>
       <h2 className='text-center text-lg md:text-[32px] my-4 md:my-8'>Categories</h2>
-      <div className='grid md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 gap-4 px-8 max-w-screen-2xl m-auto'>
+      <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 gap-4 px-8 max-w-screen-2xl m-auto'>
         {categories.map((category: CategoryType) => (
             <div className='bg-gray-100 p-4 border border-gray-300 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300' key={category.idCategory}> 
               <div className='flex justify-between'>
